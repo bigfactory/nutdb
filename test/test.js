@@ -82,6 +82,36 @@ describe('update', function() {
     });
 });
 
+describe('upsert', function() {
+    it('should return the result', function(done) {
+        var db = getDb();
+        var collection = db.collection('documents');
+
+        collection.insert([
+            {a : 2, b: 1}, {a : 2, b: 3}, {a : 3}
+        ], function(err, result) {
+            collection.update({ 
+                a : 4 
+            }, { 
+                $set: { 
+                    b : 5 
+                }, 
+                upsert: true
+            }, function(err, result) {
+                assert.equal(err, null);
+                assert.equal(1, result.result.n);
+                collection.findOne({
+                    a: 4   
+                }, function(err, result){
+                    assert.equal(4, result.a);
+                    assert.equal(5, result.b);
+                });
+                done();
+            });  
+        });
+    });
+});
+
 describe('remove', function() {
     it('should return the result', function(done) {
         var db = getDb();

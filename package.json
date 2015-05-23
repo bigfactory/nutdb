@@ -1,6 +1,6 @@
 {
   "name": "nutdb",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "light database build with json files and similar interface with mongodb",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,10 @@
   },
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigfactory/nutdb.git"
+  },
   "devDependencies": {
     "mocha": "^2.2.5",
     "should": "^6.0.3"

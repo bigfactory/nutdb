@@ -1,6 +1,6 @@
 {
   "name": "nutdb",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "light database build with json files and similar interface with mongodb",
   "main": "index.js",
   "scripts": {
